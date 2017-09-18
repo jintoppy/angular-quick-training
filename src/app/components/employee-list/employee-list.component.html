@@ -1,0 +1,28 @@
+<div *ngIf="employees.length>0">
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Department</th>
+        <th>View</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let emp of employees">
+        <td>{{emp.name}}</td>
+        <td>{{emp.department | uppercase}}</td>
+        <td>
+          <button (click)="showDetail(emp)">
+            View
+          </button>
+        </td>
+      </tr>
+    </tbody> 
+  </table>
+</div>
+<div *ngIf="employees.length === 0">
+  No Employees
+</div>
+====================================================<br/>
+<app-employee-detail [employee]="selectedEmployee"></app-employee-detail>
+
